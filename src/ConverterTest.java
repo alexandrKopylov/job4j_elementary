@@ -1,5 +1,4 @@
 
-
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -12,6 +11,7 @@ public class ConverterTest {
         int out = Converter.rubleToEuro(in);
         Assert.assertEquals(expected, out);
     }
+
 
     @Test
     public void rubleToDollar() {
