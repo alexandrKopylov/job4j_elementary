@@ -13,6 +13,7 @@ public class ConverterTest {
     }
 
 
+
     @Test
     public void rubleToDollar() {
         int in = 180;
