@@ -21,7 +21,4 @@ public class FitnessTest {
         int month = Fitness.calc(50, 90);
         assertThat(month, is(2));
     }
-
-
-
 }
