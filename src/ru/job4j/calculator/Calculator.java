@@ -1,7 +1,21 @@
 package ru.job4j.calculator;
 
+/**Class Calculator сложение чисел
+ *                  вычитание чисел
+ *                  умножение
+ *                  деление
+ *  @author Alexandr Kopylov
+ *  @since 21.03.2020
+ */
+
+
+
 public class Calculator {
 
+    /**
+     * Метод для тестирования нашего приложентя
+     * @param args
+     */
     public static void main(String[] args) {
         int one = 1;
         int two = 2;
