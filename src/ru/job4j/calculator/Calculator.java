@@ -1,9 +1,9 @@
 package ru.job4j.calculator;
 
 /**Class Calculator сложение чисел
- *                  вычитание чисел
- *                  умножение
- *                  деление
+ *  вычитание чисел
+ *  умножение
+ *  деление
  *  @author Alexandr Kopylov
  *  @since 21.03.2020
  */
