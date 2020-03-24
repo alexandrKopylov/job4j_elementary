@@ -1,6 +1,7 @@
 package ru.job4j.calculator;
 
-/**Class Calculator сложение чисел
+/**
+ * Class Calculator сложение чисел
  *  вычитание чисел
  *  умножение
  *  деление
