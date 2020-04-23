@@ -3,10 +3,11 @@ package ru.job4j.inheritance;
 public class Predator extends Animal  {
 
     public Predator(){
-        System.out.println("Predator");
+        super();
+        System.out.println("Konstruktor Predator");
     }
 
     public static void main(String[] args) {
-        Predator bug = new Predator();
+        Predator  predator = new Predator();
     }
 }
