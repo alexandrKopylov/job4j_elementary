@@ -16,6 +16,7 @@ public class TriangleTest {
         double  expected = 6.0;
         Assert.assertEquals(expected, out,0.01);
     }
+
     @Test
     public void whenExist2() {
         Point t1 = new Point(0, 0);
