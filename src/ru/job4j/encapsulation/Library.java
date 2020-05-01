@@ -23,9 +23,11 @@ public class Library {
         }
         System.out.println();
 
+       tmp =  books[0];
+
         for (int i = 0; i < books.length; i++) {
 
-             if(books[i].getName()=="Clean code"){
+             if(books[i].equals(tmp)){
               System.out.println(books[i].getName() + " " + books[i].getCount());
            }
         }
