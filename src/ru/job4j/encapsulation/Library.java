@@ -9,7 +9,7 @@ public class Library {
         books[2] = new Book("Matematika", 55);
         books[3] = new Book("Clean code", 100);
 
-        for(int i=0;i<books.length;i++) {
+        for (int i = 0; i < books.length; i++) {
             System.out.println(books[i].getName() + " " + books[i].getCount());
         }
         System.out.println();
@@ -23,13 +23,13 @@ public class Library {
         }
         System.out.println();
 
-       tmp =  books[0];
+        // tmp =  books[0];
 
         for (int i = 0; i < books.length; i++) {
 
-             if(books[i].equals(tmp)){
-              System.out.println(books[i].getName() + " " + books[i].getCount());
-           }
+            if (books[i].equals("Clean code")) {
+                System.out.println(books[i].getName() + " " + books[i].getCount());
+            }
         }
     }
 }
