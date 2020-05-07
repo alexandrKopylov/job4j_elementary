@@ -2,7 +2,7 @@ package ru.job4j.encapsulation;
 
 public class Shop {
 
-    public static   Product[] delete( Product[] products , int index) {
+/*    public static   Product[] delete( Product[] products , int index) {
         for (int i =index; i < products.length; i++) {
             int temp = i+1;
            if(temp<products.length-1){
@@ -13,8 +13,27 @@ public class Shop {
         }
         products[products.length-1] = null;
         return products;
+    }*/
 
+
+    public static   Product[] delete( Product[] products , int index) {
+        if( products.length-1 < index){
+            return products;
+        }
+        if( products.length-1 == index){
+            products[products.length-1] = null;
+            return products;
+        }
+        for (int i =index; i < products.length; i++) {
+            if( products.length-1 >= i + 1){
+                products[i] = products[i + 1];
+            }
+        }
+        products[products.length-1] = null;
+        return products;
     }
+
+
     public  static  Product[] show( Product[] products ) {
         System.out.println();
         for (int i = 0; i < products.length; i++) {
@@ -38,7 +57,9 @@ public class Shop {
 
 
         show( products );
-        delete( products , 2);
+        delete( products , 10);
+        show( products );
+        delete( products , 4);
         show( products );
         delete( products , 0);
         show( products );
