@@ -2,7 +2,9 @@ package ru.job4j.encapsulation;
 
 
 public class Library {
+
     public static void main(String[] args) {
+
         Book[] books = new Book[4];
         books[0] = new Book("Bukvar", 10);
         books[1] = new Book("Azbuka", 15);
