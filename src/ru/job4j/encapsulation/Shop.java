@@ -6,10 +6,8 @@ public class Shop {
         if (products.length - 1 < index) {
             return products;
         }
-        for (int i = index; i < products.length; i++) {
-            if (products.length - 1 >= i + 1) {
-                products[i] = products[i + 1];
-            }
+        for (int i = index; i < products.length - 1; i++) {
+            products[i] = products[i + 1];
         }
         products[products.length - 1] = null;
         return products;
@@ -28,6 +26,7 @@ public class Shop {
         }
         return products;
     }
+
 
     public static void main(String[] args) {
         Product products[] = new Product[5];
