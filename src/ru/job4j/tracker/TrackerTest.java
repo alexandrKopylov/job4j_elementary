@@ -26,6 +26,6 @@ public class TrackerTest {
 
         Item[] result = tracker.findAll();
 
-
+        assertThat(result[0].getName(), is(item.getName()));
     }
 }

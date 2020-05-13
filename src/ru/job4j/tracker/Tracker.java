@@ -43,16 +43,7 @@ public class Tracker {
      */
     public Item[] findAll(){
         Item[] itemsWithoutNull = new Item[items.length];
-        int size = 0;
-        for (int index = 0; index < items.length; index++) {
-            Item name = items[index];
-            if (name != null) {
-                itemsWithoutNull [size] = name;
-                size++;
-            }
-        }
-        itemsWithoutNull = Arrays.copyOf( itemsWithoutNull, size);
-        return itemsWithoutNull;
+        return  Arrays.copyOf( itemsWithoutNull, position);
     }
 
     /**
@@ -61,17 +52,17 @@ public class Tracker {
      * @return  возвращает копию массива this.items без null элементов cо значением key
      */
     public Item[] findByName(String key){
-        Item[] itemsWithoutNull = new Item[items.length];
+        Item[] itemsWithoutNull = new Item[position];
         int size = 0;
-        for (int index = 0; index < items.length; index++) {
+        for (int index = 0; index < position; index++) {
             Item name = items[index];
             if (name.getName().equals(key) ) {
-                itemsWithoutNull [size] = name;
+                itemsWithoutNull[size] = name;
                 size++;
             }
         }
-        itemsWithoutNull = Arrays.copyOf( itemsWithoutNull, size);
-        return itemsWithoutNull;
+        return  Arrays.copyOf( itemsWithoutNull, size);
+
     }
     /**
      * Метод проверяет в цикле все элементы массива this.items,
@@ -80,7 +71,7 @@ public class Tracker {
      */
     public Item findById(String id){
 
-        for (int index = 0; index < items.length; index++) {
+        for (int index = 0; index < position; index++) {
             Item name = items[index];
             if (name.getId().equals(id) ) {
                return  name;
