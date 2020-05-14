@@ -39,50 +39,48 @@ public class Tracker {
 
     /**
      * Метод возвращает копию массива this.items без null элементов
-     * @return  возвращает копию массива this.items без null элементов
+     *
+     * @return возвращает копию массива this.items без null элементов
      */
-    public Item[] findAll(){
-        return  Arrays.copyOf( items, position);
+    public Item[] findAll() {
+        return Arrays.copyOf(items, position);
     }
 
     /**
      * Метод проверяет в цикле все элементы массива this.items,
      * сравнивая name (используя метод getName класса Item) с аргументом метода String key
-     * @return  возвращает копию массива this.items без null элементов cо значением key
+     *
+     * @return возвращает копию массива this.items без null элементов cо значением key
      */
-    public Item[] findByName(String key){
+    public Item[] findByName(String key) {
         Item[] itemsWithoutNull = new Item[position];
         int size = 0;
         for (int index = 0; index < position; index++) {
             Item name = items[index];
-            if (name.getName().equals(key) ) {
+            if (name.getName().equals(key)) {
                 itemsWithoutNull[size] = name;
                 size++;
             }
         }
-        return  Arrays.copyOf( itemsWithoutNull, size);
+        return Arrays.copyOf(itemsWithoutNull, size);
 
     }
+
     /**
      * Метод проверяет в цикле все элементы массива this.items,
      * сравнивая name (используя метод getName класса Item) с аргументом метода String key
-     * @return  возвращает копию массива this.items без null элементов cо значением key
+     *
+     * @return возвращает копию массива this.items без null элементов cо значением key
      */
     public Item findById(String id) {
-        Item item = null;
-        for (int index = 0; index < position; index++) {
-            Item current = items[index];
-            if (current.getId().equals(id)) {
-                item = current;
-                break;
-            }
-        }
-        return item;
+        int index = indexOf(id);
+        return index != -1 ? items[index] : null;
     }
 
     /**
      * Метод возвращать index по id
-     * @return  возвращать index
+     *
+     * @return возвращать index
      */
     private int indexOf(String id) {
         int rsl = -1;
@@ -95,5 +93,20 @@ public class Tracker {
         return rsl;
     }
 
+    /**
+     * Метод возвращать true если заявку поменяли на новую,
+     * false если заявку не поменяли (нет такого id)
+     * @return возвращать boolean
+     */
+    public boolean replace(String id, Item item) {
 
+        int indexTemp = indexOf(id);
+        if (indexTemp != -1) {
+            item.setId(id);
+            items[indexTemp] = item;
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
