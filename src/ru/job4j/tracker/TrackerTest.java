@@ -25,7 +25,19 @@ public class TrackerTest {
         tracker.add(item2);
 
         Item[] result = tracker.findAll();
+        assertThat(result[0].getName(), is("test1"));
+    }
 
-        assertThat(result[0].getName(), is(item.getName()));
+    @Test
+    public void testfindByName() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("test1");
+        tracker.add(item);
+
+        Item item2 = new Item("test2");
+        tracker.add(item2);
+
+        Item[] result = tracker.findByName("test2");
+        assertThat(result[0].getName(), is("test2"));
     }
 }

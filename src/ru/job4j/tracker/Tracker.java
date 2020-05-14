@@ -42,8 +42,7 @@ public class Tracker {
      * @return  возвращает копию массива this.items без null элементов
      */
     public Item[] findAll(){
-        Item[] itemsWithoutNull = new Item[items.length];
-        return  Arrays.copyOf( itemsWithoutNull, position);
+        return  Arrays.copyOf( items, position);
     }
 
     /**
@@ -69,15 +68,32 @@ public class Tracker {
      * сравнивая name (используя метод getName класса Item) с аргументом метода String key
      * @return  возвращает копию массива this.items без null элементов cо значением key
      */
-    public Item findById(String id){
-
+    public Item findById(String id) {
+        Item item = null;
         for (int index = 0; index < position; index++) {
-            Item name = items[index];
-            if (name.getId().equals(id) ) {
-               return  name;
+            Item current = items[index];
+            if (current.getId().equals(id)) {
+                item = current;
+                break;
             }
         }
-        return null;
-
+        return item;
     }
+
+    /**
+     * Метод возвращать index по id
+     * @return  возвращать index
+     */
+    private int indexOf(String id) {
+        int rsl = -1;
+        for (int index = 0; index < position; index++) {
+            if (items[index].getId().equals(id)) {
+                rsl = index;
+                break;
+            }
+        }
+        return rsl;
+    }
+
+
 }
