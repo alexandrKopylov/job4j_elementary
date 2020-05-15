@@ -99,14 +99,12 @@ public class Tracker {
      * @return возвращать boolean
      */
     public boolean replace(String id, Item item) {
-
         int indexTemp = indexOf(id);
         if (indexTemp != -1) {
             item.setId(id);
             items[indexTemp] = item;
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 }
