@@ -107,4 +107,26 @@ public class Tracker {
         }
         return false;
     }
+
+    /**
+     * Метод возвращать true если заявку удалена
+     * false если заявку не удалена (нет такого id)
+     * @return возвращать boolean
+     */
+    public boolean delete(String id) {
+       int index = indexOf(id);
+       if(index != -1) {
+
+           System.arraycopy(items, index + 1, items, index, position - index);
+
+           position--;
+           items[position ] = null;
+           return true;
+       }
+        return false;
+    }
+
+
+
+
 }
