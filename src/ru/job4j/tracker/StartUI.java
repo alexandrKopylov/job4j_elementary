@@ -4,6 +4,70 @@ package ru.job4j.tracker;
 
 public class StartUI {
 
+    public static void createItem(Input input, Tracker tracker) {
+        System.out.println();
+        System.out.println("=== Create a new Item ====");
+        String name = input.askStr("Enter name: ");
+        Item item = new Item(name);
+        tracker.add(item);
+    }
+
+    public static void showAllItems(Input input, Tracker tracker) {
+        System.out.println();
+        System.out.println("=== Show all items ====");
+        Item[] result = tracker.findAll();
+        for (int i = 0; i < result.length; i++) {
+
+            System.out.println(result[i]);
+        }
+    }
+
+    public static void editItem(Input input, Tracker tracker) {
+        System.out.println();
+        System.out.println("=== Edit item ===");
+        String name =input.askStr("Enter id: ");
+        String name2 = input.askStr("Enter New Item: ");
+        Item item = new Item(name2);
+        if (tracker.replace(name, item)) {
+            System.out.println("application successfully changed");
+        } else {
+            System.out.println("the application is not changed");
+        }
+    }
+
+    public static void deleteItem(Input input, Tracker tracker) {
+        System.out.println();
+        System.out.println("=== Delete item ===");
+        String name =input.askStr("Enter id: ");
+        if (tracker.delete(name)) {
+            System.out.println("application successfully delete");
+        } else {
+            System.out.println("the application is not delete ");
+        }
+    }
+
+    public static void findItemById(Input input, Tracker tracker) {
+        System.out.println();
+        System.out.println("=== Find item by Id ===");
+        String  name =input.askStr("Enter id: ");
+        Item tmp = tracker.findById(name);
+        if (tmp == null) {
+            System.out.println("application not found");
+        } else {
+            System.out.println(tmp);
+        }
+    }
+
+    public static void findItemByName(Input input, Tracker tracker) {
+        System.out.println();
+        System.out.println("=== Find items by name ===");
+        String name = input.askStr("Enter name: ");
+         Item[] result = tracker.findByName(name);
+        for (int i = 0; i < result.length; i++) {
+            System.out.println(result[i]);
+        }
+    }
+
     public void init(  Input input, Tracker tracker) {
 
         boolean run = true;
@@ -13,64 +77,22 @@ public class StartUI {
             int select = input.askInt("Select:");
             switch (select) {
                 case (0):
-                    System.out.println();
-                    System.out.println("=== Create a new Item ====");
-                    //System.out.print("Enter name: ");
-                    String name = input.askStr("Enter name: ");
-                    Item item = new Item(name);
-                    tracker.add(item);
+                    StartUI.createItem( input, tracker);
                     break;
                 case (1):
-                    System.out.println();
-                    System.out.println("=== Show all items ====");
-                    Item[] result = tracker.findAll();
-                    for (int i = 0; i < result.length; i++) {
-
-                        System.out.println(result[i]);
-                    }
+                    StartUI.showAllItems( input, tracker);
                     break;
                 case (2):
-                    System.out.println();
-                    System.out.println("=== Edit item ===");
-                    name =input.askStr("Enter id: ");
-                    String name2 = input.askStr("Enter New Item: ");
-                    item = new Item(name2);
-                    if (tracker.replace(name, item)) {
-                        System.out.println("application successfully changed");
-                    } else {
-                        System.out.println("the application is not changed");
-                    }
-
+                    StartUI.editItem( input, tracker);
                     break;
                 case (3):
-                    System.out.println();
-                    System.out.println("=== Delete item ===");
-                    name =input.askStr("Enter id: ");
-                    if (tracker.delete(name)) {
-                        System.out.println("application successfully delete");
-                    } else {
-                        System.out.println("the application is not delete ");
-                    }
+                    StartUI.deleteItem( input, tracker);
                     break;
                 case (4):
-                    System.out.println();
-                    System.out.println("=== Find item by Id ===");
-                    name =input.askStr("Enter id: ");
-                    Item tmp = tracker.findById(name);
-                    if (tmp == null) {
-                        System.out.println("application not found");
-                    } else {
-                        System.out.println(tmp);
-                    }
+                    StartUI.findItemById( input, tracker);
                     break;
                 case (5):
-                    System.out.println();
-                    System.out.println("=== Find items by name ===");
-                    name = input.askStr("Enter name: ");
-                    result = tracker.findByName(name);
-                    for (int i = 0; i < result.length; i++) {
-                        System.out.println(result[i]);
-                    }
+                    StartUI.findItemByName( input, tracker);
                     break;
                 case (6):
                     System.out.println();
