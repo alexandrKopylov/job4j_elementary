@@ -14,6 +14,11 @@ public class Item {
         return id;
     }
 
+    @Override
+    public String toString() {
+    return " name = "+ name +", id = "+id;
+    }
+
     public void setId(String id) {
         this.id = id;
     }
