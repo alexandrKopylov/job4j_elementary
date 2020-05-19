@@ -1,7 +1,6 @@
 package ru.job4j.tracker;
 
 
-
 public class StartUI {
 
     public static void createItem(Input input, Tracker tracker) {
@@ -25,7 +24,7 @@ public class StartUI {
     public static void editItem(Input input, Tracker tracker) {
         System.out.println();
         System.out.println("=== Edit item ===");
-        String name =input.askStr("Enter id: ");
+        String name = input.askStr("Enter id: ");
         String name2 = input.askStr("Enter New Item: ");
         Item item = new Item(name2);
         if (tracker.replace(name, item)) {
@@ -38,7 +37,7 @@ public class StartUI {
     public static void deleteItem(Input input, Tracker tracker) {
         System.out.println();
         System.out.println("=== Delete item ===");
-        String name =input.askStr("Enter id: ");
+        String name = input.askStr("Enter id: ");
         if (tracker.delete(name)) {
             System.out.println("application successfully delete");
         } else {
@@ -49,7 +48,7 @@ public class StartUI {
     public static void findItemById(Input input, Tracker tracker) {
         System.out.println();
         System.out.println("=== Find item by Id ===");
-        String  name =input.askStr("Enter id: ");
+        String name = input.askStr("Enter id: ");
         Item tmp = tracker.findById(name);
         if (tmp == null) {
             System.out.println("application not found");
@@ -62,13 +61,18 @@ public class StartUI {
         System.out.println();
         System.out.println("=== Find items by name ===");
         String name = input.askStr("Enter name: ");
-         Item[] result = tracker.findByName(name);
-        for (int i = 0; i < result.length; i++) {
-            System.out.println(result[i]);
+        Item[] result = tracker.findByName(name);
+        if (result.length != 0) {
+
+            for (int i = 0; i < result.length; i++) {
+                System.out.println(result[i]);
+            }
+        } else {
+            System.out.println("application not found");
         }
     }
 
-    public void init(  Input input, Tracker tracker) {
+    public void init(Input input, Tracker tracker) {
 
         boolean run = true;
         while (run) {
@@ -77,22 +81,22 @@ public class StartUI {
             int select = input.askInt("Select:");
             switch (select) {
                 case (0):
-                    StartUI.createItem( input, tracker);
+                    StartUI.createItem(input, tracker);
                     break;
                 case (1):
-                    StartUI.showAllItems( input, tracker);
+                    StartUI.showAllItems(input, tracker);
                     break;
                 case (2):
-                    StartUI.editItem( input, tracker);
+                    StartUI.editItem(input, tracker);
                     break;
                 case (3):
-                    StartUI.deleteItem( input, tracker);
+                    StartUI.deleteItem(input, tracker);
                     break;
                 case (4):
-                    StartUI.findItemById( input, tracker);
+                    StartUI.findItemById(input, tracker);
                     break;
                 case (5):
-                    StartUI.findItemByName( input, tracker);
+                    StartUI.findItemByName(input, tracker);
                     break;
                 case (6):
                     System.out.println();
