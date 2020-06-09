@@ -5,7 +5,7 @@ public class FindEl {
 
 
 
-    public static int indexOf(String[] value, String key) throws ElementNotFoundException {
+    public static int indexOf(String[] value, String key) throws UserNotFoundException {
         int rsl = -1;
         for (int i = 0; i < value.length; i++) {
             if (value[i].equals(key) ) {
@@ -14,7 +14,7 @@ public class FindEl {
             }
         }
         if (rsl == -1) {
-            throw new ElementNotFoundException("key not found in array.");
+            throw new UserNotFoundException("key not found in array.");
         }
         return rsl;
     }
@@ -24,7 +24,7 @@ public class FindEl {
         try {
             int index = indexOf(arrayValue, "124");
             System.out.println(index);
-        } catch (ElementNotFoundException e) {
+        } catch (UserNotFoundException e) {
             e.printStackTrace();
         }
     }
