@@ -2,7 +2,7 @@ package ru.job4j.exception;
 
 public class FactRec {
     public static int calc(int n) {
-        if (n == 1) {
+        if (n == 1 || n == 0) {
             return 1;
         } else {
             return calc(n - 1) * n;
